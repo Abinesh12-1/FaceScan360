@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial Recognition</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Facial Recognition</h1>
+        <p class="description">Upload a face image to match with your webcam</p>
+        
+        <form action="/process" method="post" enctype="multipart/form-data">
+            <div class="file-input-container">
+                <label for="first_face_file">Select the face image:</label><br>
+                <input type="file" id="first_face_file" name="first_face_file" accept="image/*"><br>
+                <small>Supported formats: JPG, PNG</small>
+            </div>
+            
+            <div class="instructions">
+                <h3>Instructions:</h3>
+                <ol>
+                    <li>Upload a clear image of the face you want to recognize</li>
+                    <li>After submitting, the app will access your webcam</li>
+                    <li>Position yourself in front of the camera</li>
+                    <li>The app will try to match your face for 30 seconds</li>
+                </ol>
+            </div>
+            
+            <input type="submit" value="Start Recognition" class="submit-btn">
+        </form>
+    </div>
+</body>
+</html>

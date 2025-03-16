@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Face Match</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>No Face Match Found</h1>
+        <div class="result-info error">
+            <p>We couldn't match the uploaded face with anyone in the webcam feed within the time limit.</p>
+            <p>Possible reasons:</p>
+            <ul>
+                <li>No face was detected in the webcam</li>
+                <li>The lighting conditions were poor</li>
+                <li>The face angle or expression was significantly different</li>
+                <li>The 30-second timeout expired</li>
+            </ul>
+        </div>
+        <div class="navigation">
+            <a href="{{ url_for('index') }}" class="back-btn">Try Again</a>
+        </div>
+    </div>
+</body>
+</html>

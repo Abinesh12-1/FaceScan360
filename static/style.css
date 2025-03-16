@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.description {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.file-input-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    max-width: 600px;
+    margin: auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+form input[type="file"] {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+small {
+    display: block;
+    color: #777;
+    margin-top: 5px;
+}
+
+.instructions {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+    border-left: 4px solid #3498db;
+}
+
+.instructions h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.instructions ol {
+    padding-left: 20px;
+}
+
+.instructions li {
+    margin-bottom: 10px;
+}
+
+.submit-btn, .back-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover, .back-btn:hover {
+    background-color: #2980b9;
+}
+
+.matched-image-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.matched-image {
+    max-width: 100%;
+    border: 3px solid #2ecc71;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.result-info {
+    background-color: #e8f8f5;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.result-info.error {
+    background-color: #fdf2f2;
+    border-left: 4px solid #e74c3c;
+    text-align: left;
+}
+
+.result-info ul {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.navigation {
+    margin-top: 30px;
+    text-align: center;
+}
