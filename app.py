@@ -12,6 +12,10 @@ app = Flask(__name__)
 # Global variable to store the last time the camera was used
 last_camera_use = 0
 
+# Set a high accuracy threshold (lower face_distance means higher accuracy)
+# Only matches above this confidence percentage will be considered valid
+MINIMUM_CONFIDENCE_PERCENTAGE = 70  # 70% confidence minimum
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -101,22 +105,20 @@ def process():
                     encodings = face_recognition.face_encodings(frame_rgb, face_locations)
                     
                     for i, encoding in enumerate(encodings):
-                        # Adjust tolerance for better matching
-                        match = face_recognition.compare_faces([uploaded_encoding], encoding, tolerance=0.6)
-                        
-                        # Get face distance for confidence level
+                        # Calculate face distance for confidence level
                         face_distance = face_recognition.face_distance([uploaded_encoding], encoding)[0]
                         
-                        if match[0]:
+                        # Calculate confidence percentage (lower distance = higher confidence)
+                        confidence = (1 - face_distance) * 100
+                        
+                        # Only consider it a match if confidence exceeds our minimum threshold
+                        if confidence >= MINIMUM_CONFIDENCE_PERCENTAGE:
                             # Scale back the face location coordinates
                             top, right, bottom, left = face_locations[i]
                             top *= 2
                             right *= 2
                             bottom *= 2
                             left *= 2
-                            
-                            # Calculate confidence percentage
-                            confidence = (1 - face_distance) * 100
                             
                             # Draw rectangle and confidence
                             cv2.rectangle(display_frame, (left, top), (right, bottom), (0, 255, 0), 2)
